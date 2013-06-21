@@ -26,10 +26,13 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             options: {
-                nospawn: true,
-                livereload: LIVERELOAD_PORT
+                livereload: LIVERELOAD_PORT,
+                nospawn: true
             },
             coffee: {
+                options: {
+                    nospawn: false
+                },
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
                 tasks: ['coffee:dist']
             },
@@ -38,6 +41,9 @@ module.exports = function (grunt) {
                 tasks: ['coffee:test']
             },
             compass: {
+                options: {
+                    nospawn: false
+                },
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
